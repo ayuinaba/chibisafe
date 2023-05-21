@@ -13,8 +13,8 @@ services:
         image: ayuinaba/chibisafe #Tag Docker Image
         container_name: chibisafe #Name container name
         volumes:
-            - /chibisafe/data:/usr/chibisafe/uploads
-            - /chibisafe/database:/usr/chibisafe/database
+            - ./chibisafe/data:/usr/chibisafe/uploads
+            - ./chibisafe/database:/usr/chibisafe/database
         ports: #You still should have a reverse proxy pointing to the container. Connecting to it through localhost or any other means might/will probably give you issues.
             - 5051:5000
         hostname: chibisafe
@@ -46,7 +46,7 @@ services:
             USER_ACCOUNTS: "true"
             ADMIN_ACCOUNT: #"admin"
             ADMIN_PASSWORD: #"admin"
-            DB_CLIENT: "mariadb" #You probably should be running a external DB, but there is one already part of the container. Also there is an issue with Chibisafe duplicating db entries in docker, but seems to work fine in production.
+            DB_CLIENT: "sqlite3" #You probably should be running a external DB, but there is one already part of the container. Also there is an issue with Chibisafe duplicating db entries in docker, but seems to work fine in production.
             DB_HOST: ""
             DB_USER: ""
             DB_PASSWORD: ""
