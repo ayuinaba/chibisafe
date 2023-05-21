@@ -1,9 +1,9 @@
 version: "3.7"
 
-#networks: #Add to my Nginx Network in Docker. Just makes life easier for me, and you may need to change this depending on what reverse proxy you are using.
-    #default:
-        #external:
-            #name: "swag_default"
+networks: #Add to my Nginx Network in Docker. Just makes life easier for me, and you may need to change this depending on what reverse proxy you are using.
+    default:
+        external:
+            name: "swag_default"
 
 services:
     chibisafe:
@@ -46,7 +46,7 @@ services:
             USER_ACCOUNTS: "true"
             ADMIN_ACCOUNT: #"admin"
             ADMIN_PASSWORD: #"admin"
-            DB_CLIENT: "sqlite3" #You probably should be running a external DB, but there is one already part of the container. Also there is an issue with Chibisafe duplicating db entries in docker, but seems to work fine in production.
+            DB_CLIENT: "mariadb" #You probably should be running a external DB, but there is one already part of the container. Also there is an issue with Chibisafe duplicating db entries in docker, but seems to work fine in production.
             DB_HOST: ""
             DB_USER: ""
             DB_PASSWORD: ""
