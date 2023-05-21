@@ -13,8 +13,8 @@ services:
         image: ayuinaba/chibisafe #Tag Docker Image
         container_name: chibisafe #Name container name
         volumes:
-            - ./chibisafe/data:/usr/chibisafe/uploads
-            - ./chibisafe/database:/usr/chibisafe/database
+            - /chibisafe/data:/usr/chibisafe/uploads
+            - /chibisafe/database:/usr/chibisafe/database
         ports: #You still should have a reverse proxy pointing to the container. Connecting to it through localhost or any other means might/will probably give you issues.
             - 5051:5000
         hostname: chibisafe
@@ -25,7 +25,7 @@ services:
             ROUTE_PREFIX: /api
             RATE_LIMIT_WINDOW: 2
             RATE_LIMIT_MAX: 5
-            SECRET: #"wowfcgMHqZHwOIMLadWrKu3liyqPOOILpDLSDvuxq3YGhJmiZXJCVpnF96l11WfR" <--- "openssl rand -base64 32" To Generate.
+            SECRET: #"" <--- "openssl rand -base64 32" To Generate.
             MAX_LINKS_PER_ALBUM: 5
             META_THEME_COLOR: "#20222b"
             META_DESCRIPTION: "Blazing fast file uploader edited by Ayu!🚀"
@@ -33,7 +33,7 @@ services:
             META_TWITTER_HANDLE: ""
             BLOCKED_EXTENSIONS: ".msi"
             SERVER_PORT: 5000
-            DOMAIN: "https://safe.ayucore.duckdns.org" #Change this to the domain you are hosting this on or you will get network errors when trying to login.
+            DOMAIN: "" #Change this to the domain you are hosting this on or you will get network errors when trying to login.
             SERVICE_NAME: ayusafe
             MAX_SIZE: 72727
             GENERATE_THUMBNAILS: "true"
