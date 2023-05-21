@@ -16,7 +16,7 @@ services:
             - /chibisafe/data:/usr/chibisafe/uploads
             - /chibisafe/database:/usr/chibisafe/database
         ports: #You still should have a reverse proxy pointing to the container. Connecting to it through localhost or any other means might/will probably give you issues.
-            - 5051:5000
+            - 444:5000
         hostname: chibisafe
         restart: unless-stopped
         environment:
